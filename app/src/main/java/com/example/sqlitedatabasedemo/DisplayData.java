@@ -17,6 +17,7 @@ import java.util.List;
 public class DisplayData extends AppCompatActivity {
     DataBaseHelper dataBaseHelper;
     ArrayList<String> name_arraylist,roll_arrayList;
+    ArrayList<String>id_arraylist;
     RecyclerView recyclerView;
 
     @Override
@@ -34,10 +35,15 @@ public class DisplayData extends AppCompatActivity {
 
         name_arraylist = new ArrayList<>();
         roll_arrayList = new ArrayList<>();
+        id_arraylist = new ArrayList<>();
+
+
         while (cursor.moveToNext()) {
 
             name_arraylist.add(cursor.getString(cursor.getColumnIndex(Query.STUDENT_NAME)));
             roll_arrayList.add(cursor.getString(cursor.getColumnIndex(Query.STUDENT_ROLL)));
+            id_arraylist.add(cursor.getString(cursor.getColumnIndex(Query.ID)));
+
 
         }
 
@@ -45,7 +51,7 @@ public class DisplayData extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerViewId);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter adapter=new MyAdapter(DisplayData.this,name_arraylist,roll_arrayList);
+        MyAdapter adapter=new MyAdapter(DisplayData.this,name_arraylist,roll_arrayList,id_arraylist);
 
 
         recyclerView.setAdapter(adapter);

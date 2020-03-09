@@ -3,36 +3,104 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
 
+    >
     <LinearLayout
-        android:layout_margin="10dp"
-        android:background="#57A9EA"
-        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:weightSum="6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+    <LinearLayout
+
+        android:layout_weight="2"
+        android:background="#0687ED"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
 
 
-    <TextView
-        android:id="@+id/NameTextViewId"
+        <TextView
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text=" Name:"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="#FFFDFD" />
+
+        <TextView
+            android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_weight="1"
         android:padding="10dp"
-        android:text=" Name"
+        android:text="Roll : "
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textColor="#000000" />
+            android:textColor="#FFFDFD"/>
 
-    <TextView
-        android:id="@+id/rollTextViewId"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:text="Roll"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#070000" />
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_weight="3.3"
+        android:background="#57A9EA"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/NameTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Abdullah"
+            android:padding="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="#FFFDFD" />
+
+        <TextView
+            android:id="@+id/rollTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="328338"
+            android:padding="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#FFFDFD" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:background="#57A9EA"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:layout_weight=".7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageButton
+                android:id="@+id/editButtonId"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:src="@drawable/edit"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+            <ImageButton
+                android:id="@+id/deleteButtonId"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:src="@drawable/delete"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/idTextViewId"
+            android:layout_width="1dp"
+            android:layout_height="1dp"/>
 
 </LinearLayout>
 </LinearLayout>

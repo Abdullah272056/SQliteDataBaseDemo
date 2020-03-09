@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,45 +17,56 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     Context context;
     ArrayList<String> name,roll;
+    ArrayList<String> id;
 
-    public MyAdapter(Context context, ArrayList<String> name, ArrayList<String> roll) {
+    DataBaseHelper dataBaseHelper;
+
+    AlertDialog.Builder builder;
+
+    public MyAdapter(Context context, ArrayList<String> name, ArrayList<String> roll,ArrayList<String> id) {
         this.context = context;
         this.name = name;
         this.roll = roll;
+        this.id = id;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(context).inflate(R.layout.rowlayout,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.sample_layout,parent,false);
         MyViewHolder myViewHolder=new MyViewHolder(view);
 
         return myViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.countryNameTextView.setText(name.get(position));
-        holder.countryDescTextView.setText(roll.get(position));
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        holder.NameTextView.setText(name.get(position));
+        holder.rollTextView.setText(roll.get(position));
+        holder.idTextView.setText(id.get(position));
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Item Clicked", Toast.LENGTH_SHORT).show();
+
             }
         });
-
-
-        holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
+                dataBaseHelper=new DataBaseHelper(context);
+                dataBaseHelper.getWritableDatabase();
 
-                Toast.makeText(context, "Item Clicked long time", Toast.LENGTH_SHORT).show();
+                int status = dataBaseHelper.deleteData(id.get(position));
 
-                return true;
+                Toast.makeText(context, "Item Clicked"+id.get(position), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
 
     }
 
