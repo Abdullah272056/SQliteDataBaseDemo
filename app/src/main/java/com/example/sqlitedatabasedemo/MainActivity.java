@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     roll=rollEditText.getText().toString();
                     dataBaseHelper.getWritableDatabase();
                    long id= dataBaseHelper.insertData(new Student(name,roll));
-                    Toast.makeText(MainActivity.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
 
 

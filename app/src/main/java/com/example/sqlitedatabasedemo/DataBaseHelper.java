@@ -79,4 +79,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
 
+    public int updateData(Student student){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Query.STUDENT_NAME,student.getName());
+        contentValues.put(Query.STUDENT_ROLL,student.getRoll());
+
+        int id = db.update(Query.TABLE_NAME,contentValues,"id=?",new String[]{String.valueOf(student.getId())});
+        
+        return id;
+
+    }
+
+
+
+
 }

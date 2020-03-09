@@ -50,6 +50,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(context,UpdateActivity.class);
+                intent.putExtra("id",id.get(position));
+                intent.putExtra("oldName",name.get(position));
+                intent.putExtra("oldRoll",roll.get(position));
+
+                context.startActivity(intent);
 
             }
         });
@@ -60,7 +66,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 dataBaseHelper.getWritableDatabase();
 
                 int status = dataBaseHelper.deleteData(id.get(position));
-
                 Toast.makeText(context, "Item Clicked"+id.get(position), Toast.LENGTH_SHORT).show();
             }
         });

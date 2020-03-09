@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UpdateActivity">
+
+    <EditText
+        android:id="@+id/updateNameEditTextId"
+        android:textSize="20sp"
+        android:hint="enter your name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+
+    <EditText
+        android:id="@+id/updateRollEditTextId"
+        android:textSize="20sp"
+        android:hint="enter your Roll"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/updateButtonId"
+        android:textSize="20sp"
+        android:text="Update Data"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+</LinearLayout>
